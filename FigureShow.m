@@ -1,6 +1,6 @@
 %parameter initial
-rawpath = '/Volumes/Seagate Expansion Drive/IGEM/20160910microfluidics/GECO+PIEZO/1_UPFAST/0';
-slash='/';  rawpath_p='9000hz002t%03dc1.tif';
+rawpath = '/Volumes/Seagate Expansion Drive/IGEM/20161012microfluidics/GECO+PIEZO/100';
+slash='/';  rawpath_p='g+p_100t%03dc1.tif';
 nt=301;
 
 BgInt = zeros(1,nt);
@@ -10,7 +10,7 @@ for i1=1:nt
     rawfile=strcat(rawpath, slash, sprintf(rawpath_p, i1));
     RawImg = importdata(rawfile);
     rawImg = RawImg(:,:,1);
-	imagesc(rawImg);colorbar;
+	imagesc(rawImg);colorbar;  caxis([0,550]);
     if strcmpi(get(gcf,'CurrentCharacter'),'a')
         break;
     end
