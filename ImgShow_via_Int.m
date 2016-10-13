@@ -27,3 +27,4 @@ t = title(Title);set(t,'fontsize',20);
 xlabel('Time(s)','fontsize',15);
 ylabel('Fluorescent Intensity, dF/F0','fontsize',15);
 hold off;
+
