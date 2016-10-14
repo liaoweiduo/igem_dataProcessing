@@ -1,0 +1,9 @@
+load('/Users/liaoweiduo/GitHub/igem_dataProcessing/dataFig/20161012,R-GECO,osmotic.mat');
+g=Int(6,:,:);gb=Int(1,:,:);
+load('/Users/liaoweiduo/GitHub/igem_dataProcessing/dataFig/20161012,R-GECO+Piezo1,osmotic.mat');
+gp=Int(6,:,:);gpb=Int(1,:,:);
+load('/Users/liaoweiduo/GitHub/igem_dataProcessing/dataFig/20161012,R-GECO+Piezo1+DOX,osmotic.mat');
+gpd=Int(6,:,:);gpdb=Int(1,:,:);
+Int(1,:,:)=gb;Int(2,:,:)=g;
+Int(3,:,:)=gpb;Int(4,:,:)=gp;
+Int(5,:,:)=gpdb;Int(6,:,:)=gpd;
