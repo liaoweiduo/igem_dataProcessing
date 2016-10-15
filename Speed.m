@@ -130,18 +130,18 @@ array=[
 -16,-6.241061927275516,26.209830125905974,78.64008512282804,236.0282003582288;
 ];
 
-ex_fast=[720,660,650]*90;    %*10转换单位统一为 um/s
-ex_mid=[220,160,180]*30;
-ex_slow=[90,95,80]*10;
+ex_fast=[630,455,610]*90;    %*10转换单位统一为 um/s
+ex_mid=[180,160,180]*30;
+ex_slow=[48,75,80]*10;
 
 array=sortrows(array,2);
 x=array(:,2);
 y1=array(:,3);
 y2=array(:,4);
 y3=array(:,5);
-slow= [9*max(y1(1              : size(y1,1)/3  ));3*max(y2(1              : size(y2,1)/3  ));max(y3(1            : size(y3,1)/3  ))];
-mid = [9*max(y1(size(y1,1)/3   : size(y1,1)*2/3));3*max(y2(size(y2,1)/3   : size(y2,1)*2/3));max(y3(size(y2)/3   : size(y3,1)*2/3))];
-fast= [9*max(y1(size(y1,1)*2/3 : size(y1,1)    ));3*max(y2(size(y2,1)*2/3 : size(y2,1)    ));max(y3(size(y2)*2/3 : size(y2,1)    ))];
+slow= [9*max(y1(1 : 40));3*max(y2(1 : 40));max(y3(1 : 40))];
+mid = [9*max(y1(40: 84));3*max(y2(40: 84));max(y3(40: 84))];
+fast= [9*max(y1(85: 120));3*max(y2(85:120));max(y3(85:120))];
 slow_mean=mean(slow);slow_std=std(slow);
 mid_mean=mean(mid);  mid_std=std(mid);
 fast_mean=mean(fast);fast_std=std(fast);
@@ -151,12 +151,7 @@ ex_mid_mean=mean(ex_mid);ex_mid_std=std(ex_mid);
 ex_slow_mean=mean(ex_slow);ex_slow_std=std(ex_slow);
 
 
-
-sprintf('Simulation:');
-sprintf('fast:%f; mid:%f; low:%f',fast_mean,mid_mean,slow_mean);
-sprintf('Experiment:');
-sprintf('fast:%f; mid:%f; low:%f',ex_fast_mean,ex_mid_mean,ex_slow_mean);
-
+%{
 figure(1);
 hold on;
 plot(x,y1,'r');
@@ -167,3 +162,4 @@ t = title('Speed Simulation');set(t,'fontsize',20);
 xlabel('x:mm','fontsize',15);
 ylabel('speed:um/s','fontsize',15);
 hold off;
+%}
