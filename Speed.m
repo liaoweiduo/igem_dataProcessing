@@ -151,6 +151,8 @@ ex_mid_mean=mean(ex_mid);ex_mid_std=std(ex_mid);
 ex_slow_mean=mean(ex_slow);ex_slow_std=std(ex_slow);
 
 
+ex_mean=[ex_fast_mean ex_mid_mean ex_slow_mean];
+ex_std =[ex_fast_std  ex_mid_std  ex_slow_std ];
 %{
 figure(1);
 hold on;
@@ -163,3 +165,11 @@ xlabel('x:mm','fontsize',15);
 ylabel('speed:um/s','fontsize',15);
 hold off;
 %}
+figure(1);
+hold on;
+h = barwitherr(ex_std, ex_mean);
+t = title('Calibration of fluid flow velocity,pump speed:45ul/min');set(t,'fontsize',20);
+set(gca,'XTickLabel',{'fast','mid','slow'});
+set(gca,'FontSize',20);
+ylabel('speed(um/s)');
+hold off;
